@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DirectivasDeAtributoComponent } from './components/directivas-de-atributo/directivas-de-atributo.component';
 import { DirectivasEstructuralesComponent } from './components/directivas-estructurales/directivas-estructurales.component';
+import { DirectivasCustomComponent } from './components/directivas-custom/directivas-custom.component';
 
 @NgModule({
   declarations: [AppComponent],
@@ -13,6 +14,7 @@ import { DirectivasEstructuralesComponent } from './components/directivas-estruc
     AppRoutingModule,
     DirectivasDeAtributoComponent,
     DirectivasEstructuralesComponent,
+    DirectivasCustomComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],
