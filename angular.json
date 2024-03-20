@@ -65,10 +65,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "apex-angular-bootcamp:build:production"
+              "buildTarget": "apex-angular-bootcamp:build:production"
             },
             "development": {
-              "browserTarget": "apex-angular-bootcamp:build:development"
+              "buildTarget": "apex-angular-bootcamp:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -76,7 +76,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "apex-angular-bootcamp:build"
+            "buildTarget": "apex-angular-bootcamp:build"
           }
         },
         "test": {
