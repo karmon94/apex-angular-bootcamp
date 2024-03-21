@@ -30,6 +30,6 @@ export class DialogExampleComponent {
   ) {}
 
   closeDialog(): void {
-    this.dialogRef.close();
+    this.dialogRef.close('');
   }
 }

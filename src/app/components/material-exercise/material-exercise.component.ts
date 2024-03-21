@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDialog } from '@angular/material/dialog';
-import { DialogExampleComponent } from './dialog-example/dialog-example.component';
+import { DialogExampleComponent } from '../dialog-example/dialog-example.component';
 
 @Component({
   selector: 'app-material-exercise',
