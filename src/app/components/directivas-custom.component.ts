@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CapitalizeDirective } from './capitalize.directive';
+import { CapitalizeDirective } from '../directive/capitalize.directive';
 
 @Component({
   selector: 'app-directivas-custom',
