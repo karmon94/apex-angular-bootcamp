@@ -2,12 +2,14 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { MaterialExerciseComponent } from './components/material-exercise/material-exercise.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { RouterModule } from '@angular/router';
+import { AppRoutingModule } from './app-routing.module';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, MaterialExerciseComponent],
+  imports: [BrowserModule, MatButtonModule, AppRoutingModule, RouterModule],
   providers: [provideAnimationsAsync()],
   bootstrap: [AppComponent],
 })

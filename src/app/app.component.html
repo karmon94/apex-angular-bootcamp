@@ -7,6 +7,19 @@
   <span>Apex Angular Bootcamp</span>
 </div>
 
+<div class="route-buttons">
+  <button mat-raised-button color="primary" routerLink="/">Go Home</button>
+  <button mat-raised-button color="accent" routerLink="/simple-component">
+    Go to simple route
+  </button>
+  <button mat-raised-button color="accent" routerLink="/load-module">
+    Lazy loading module
+  </button>
+  <button mat-raised-button color="accent" routerLink="/slug-route/test">
+    Go to child route with "test" slug
+  </button>
+</div>
+
 <div class="page-content">
-  <app-material-exercise></app-material-exercise>
+  <router-outlet></router-outlet>
 </div>
