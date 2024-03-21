@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { DirectivasDeAtributoComponent } from './components/directivas-de-atributo/directivas-de-atributo.component';
 import { DirectivasEstructuralesComponent } from './components/directivas-estructurales/directivas-estructurales.component';
 import { DirectivasCustomComponent } from './components/directivas-custom/directivas-custom.component';
+import { DataBindingComponent } from './components/data-binding/data-binding.component';
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,6 +16,7 @@ import { DirectivasCustomComponent } from './components/directivas-custom/direct
     DirectivasDeAtributoComponent,
     DirectivasEstructuralesComponent,
     DirectivasCustomComponent,
+    DataBindingComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],
