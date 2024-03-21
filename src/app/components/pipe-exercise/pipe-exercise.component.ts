@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { CustomCapitalizePipe } from './custom-capitalize.pipe';
+import { CustomCapitalizePipe } from '../../pipes/custom-capitalize.pipe';
 
 @Component({
   selector: 'app-pipe-exercise',
