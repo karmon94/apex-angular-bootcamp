@@ -2,12 +2,13 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { PipeExerciseComponent } from './components/pipe-exercise/pipe-exercise.component';
+import { MaterialExerciseComponent } from './components/material-exercise/material-exercise.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, PipeExerciseComponent],
-  providers: [],
+  imports: [BrowserModule, MaterialExerciseComponent],
+  providers: [provideAnimationsAsync()],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
