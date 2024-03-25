@@ -1,0 +1,22 @@
+<div class="container">
+  <h2>Event Binding</h2>
+  <button (click)="openAlert()">Click me</button>
+</div>
+
+<hr />
+
+<div class="container">
+  <h2>One way data binding</h2>
+  <input type="text" [value]="example" />
+  <p>{{ example }}</p>
+</div>
+
+<hr />
+
+<div class="container">
+  <h2>Two way data binding</h2>
+  <input type="text" [(ngModel)]="example" />
+  <span>{{ example }}</span>
+</div>
+
+<hr />
