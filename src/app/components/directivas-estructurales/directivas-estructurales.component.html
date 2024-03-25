@@ -1,0 +1,36 @@
+<div class="container">
+  <h2>NgFor</h2>
+  <ul>
+    <li *ngFor="let char of exampleArr">
+      <span>{{ char }}</span>
+    </li>
+  </ul>
+</div>
+
+<hr />
+
+<div class="container">
+  <h2>NgIf</h2>
+  <ul>
+    <ng-container *ngFor="let char of exampleArr">
+      <li *ngIf="char !== 'B'">
+        <span>{{ char }}</span>
+      </li>
+    </ng-container>
+  </ul>
+</div>
+
+<hr />
+
+<div class="container">
+  <h2>NgSwitch</h2>
+  <ul>
+    <ng-container *ngFor="let char of exampleArr">
+      <li [ngSwitch]="char">
+        <span *ngSwitchCase="'A'">1</span>
+        <span *ngSwitchCase="'B'">2</span>
+        <span *ngSwitchCase="'C'">3</span>
+      </li>
+    </ng-container>
+  </ul>
+</div>
