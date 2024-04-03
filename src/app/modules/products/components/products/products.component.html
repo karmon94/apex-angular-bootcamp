@@ -1,0 +1,20 @@
+<div class="items-container">
+  <ng-container *ngFor="let item of pageItems">
+    <div class="item-wrapper" (click)="productClicked(item)">
+      <img
+        width="200"
+        height="200"
+        [src]="item.photos[0]"
+        alt="element.photos[0]"
+      />
+      <p>{{ item.title }}</p>
+    </div>
+  </ng-container>
+</div>
+
+<app-pagination
+  [currentPage]="currentPage"
+  [limit]="limit"
+  [totalElements]="items.length"
+  (changePage)="changePage($event)"
+></app-pagination>

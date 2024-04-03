@@ -1,0 +1,13 @@
+<div class="carousel">
+  <ng-container *ngFor="let img of imgs; let i = index">
+    <img *ngIf="i === currentImg" width="450" [src]="img" class="slide" />
+  </ng-container>
+
+  <!-- controls -->
+  <button class="control prev" (click)="previousClicked()">
+    <span class="arrow left"></span>
+  </button>
+  <button class="control next" (click)="nextClicked()">
+    <span class="arrow right"></span>
+  </button>
+</div>

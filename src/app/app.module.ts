@@ -6,11 +6,14 @@ import { AppComponent } from './app.component';
 import { AModule } from './modules/a/a.module';
 import { BModule } from './modules/b/b.module';
 import { ZModule } from './modules/z/z.module';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, AppRoutingModule, AModule, BModule, ZModule],
-  providers: [],
+  providers: [
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
