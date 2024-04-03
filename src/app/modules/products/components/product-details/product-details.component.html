@@ -1,11 +1,22 @@
 <div class="container">
   <ng-container *ngIf="productSelected; else notFound">
-    <h2>{{ productSelected.title }}</h2>
+    <h2 class="title">{{ productSelected.title }}</h2>
     <app-carousel [imgs]="productSelected.photos"></app-carousel>
-    <p>{{ productSelected.description }}</p>
+    <p class="description">{{ productSelected.description }}</p>
 
     <ng-container *ngFor="let price of productSelected.prices | keyvalue">
-      <p>{{ price.key }} : {{ price.value | topRound | currency }}</p>
+      <div class="price-container">
+        <p class="price">{{ price.key }} :</p>
+        <p
+          class="price"
+          [ngClass]="{ discount: productSelected.offerDiscount }"
+        >
+          {{ price.value | topRound | currency }}
+        </p>
+        <p class="price new-price" *ngIf="productSelected.offerDiscount">
+          {{ calculatePriceWithDiscount(price.value) | topRound | currency }}
+        </p>
+      </div>
     </ng-container>
   </ng-container>
 

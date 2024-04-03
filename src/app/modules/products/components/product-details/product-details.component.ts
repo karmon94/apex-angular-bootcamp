@@ -23,4 +23,8 @@ export class ProductDetailsComponent {
       );
     });
   }
+
+  calculatePriceWithDiscount(price: number): number {
+    return price - price * (this.productSelected?.offerDiscount! / 100);
+  }
 }

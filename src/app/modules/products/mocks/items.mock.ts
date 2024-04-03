@@ -8,6 +8,7 @@ export const itemsMock: Item[] = [
       mod001: 20.1,
       mod002: 30.51,
     },
+    offerDiscount: 10,
     photos: [
       'https://i.imgur.com/w3Y8NwQ.jpeg',
       'https://i.imgur.com/WJFOGIC.jpeg',
