@@ -5,7 +5,7 @@
     <p>{{ productSelected.description }}</p>
 
     <ng-container *ngFor="let price of productSelected.prices | keyvalue">
-      <p>{{ price.key }} : {{ price.value | topRound }}</p>
+      <p>{{ price.key }} : {{ price.value | topRound | currency }}</p>
     </ng-container>
   </ng-container>
 
