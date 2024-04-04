@@ -4,6 +4,8 @@ import { ProductsService } from '../../service/products.service';
 import { Router } from '@angular/router';
 import { FormControl } from '@angular/forms';
 import { Subscription, debounceTime } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
+import { NewProductComponent } from '../new-product/new-product.component';
 
 @Component({
   selector: 'app-products',
@@ -24,7 +26,8 @@ export class ProductsComponent {
 
   constructor(
     private productService: ProductsService,
-    private router: Router
+    private router: Router,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -74,6 +77,14 @@ export class ProductsComponent {
 
   getItemsWithDiscount(): Item[] {
     return this.items.filter((item) => item.offerDiscount);
+  }
+
+  openNewProduct(): void {
+    const dialogRef = this.dialog.open(NewProductComponent, {
+      width: '50%',
+    });
+
+    dialogRef.afterClosed().subscribe((resp) => console.log(resp));
   }
 
   ngOnDestroy(): void {

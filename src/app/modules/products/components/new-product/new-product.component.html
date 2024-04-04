@@ -1,0 +1,45 @@
+<form class="form-layout" [formGroup]="productoForm">
+  <mat-form-field>
+    <mat-label>Title</mat-label>
+    <input
+      type="text"
+      matInput
+      placeholder="Enter title"
+      formControlName="title"
+    />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Description</mat-label>
+    <input
+      type="text"
+      matInput
+      placeholder="Enter description"
+      formControlName="description"
+    />
+  </mat-form-field>
+
+  <mat-label>Photos</mat-label>
+  <button (click)="addPhoto()">Add photo</button>
+  <div formArrayName="photos">
+    <div
+      *ngFor="let photo of photos.controls; let i = index"
+      formGroupName="{{ i }}"
+    >
+      <mat-form-field>
+        <mat-label>Url</mat-label>
+        <input
+          type="text"
+          matInput
+          placeholder="Enter photo url"
+          formControlName="url"
+        />
+      </mat-form-field>
+      <button (click)="deletePhoto(i)">Delete</button>
+    </div>
+  </div>
+
+  <!-- {{ productoForm.controls["photos"].errors }} -->
+</form>
+
+<button (click)="addProduct()">Add</button>

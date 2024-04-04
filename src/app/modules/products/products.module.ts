@@ -9,6 +9,9 @@ import { TopRoundPipe } from './pipe/top-round.pipe';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { NewProductComponent } from './components/new-product/new-product.component';
 
 const routes: Routes = [
   { path: '', component: ProductsComponent },
@@ -17,7 +20,11 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [ProductsComponent, ProductDetailsComponent],
+  declarations: [
+    ProductsComponent,
+    ProductDetailsComponent,
+    NewProductComponent,
+  ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
@@ -28,6 +35,8 @@ const routes: Routes = [
     TopRoundPipe,
     MatCheckboxModule,
     MatInputModule,
+    MatButtonModule,
+    MatDialogModule,
   ],
   exports: [RouterModule],
 })
