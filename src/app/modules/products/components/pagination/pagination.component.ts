@@ -18,6 +18,14 @@ export class PaginationComponent {
   pages: number[] = [];
 
   ngOnInit(): void {
+    this.buildPages();
+  }
+
+  ngOnChanges(): void {
+    this.buildPages();
+  }
+
+  buildPages(): void {
     const pagesCount = Math.ceil(this.totalElements / this.limit);
     this.pages = this.range(1, pagesCount);
   }

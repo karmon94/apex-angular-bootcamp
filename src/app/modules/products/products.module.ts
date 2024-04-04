@@ -6,6 +6,9 @@ import { ProductDetailsComponent } from './components/product-details/product-de
 import { CarouselComponent } from './components/product-details/carousel/carousel.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { TopRoundPipe } from './pipe/top-round.pipe';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   { path: '', component: ProductsComponent },
@@ -18,9 +21,13 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
+    FormsModule,
+    ReactiveFormsModule,
     CarouselComponent,
     PaginationComponent,
     TopRoundPipe,
+    MatCheckboxModule,
+    MatInputModule,
   ],
   exports: [RouterModule],
 })

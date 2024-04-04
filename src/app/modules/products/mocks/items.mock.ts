@@ -39,6 +39,7 @@ export const itemsMock: Item[] = [
       mod020: 50.0,
       mod234: 90.0,
     },
+    offerDiscount: 20,
     photos: [
       'https://i.imgur.com/ZANVnHE.jpeg',
       'https://i.imgur.com/Ro5z6Tn.jpeg',
@@ -54,6 +55,7 @@ export const itemsMock: Item[] = [
       mod020: 50.0,
       mod234: 90.0,
     },
+    offerDiscount: 15,
     photos: [
       'https://i.imgur.com/OKn1KFI.jpeg',
       'https://i.imgur.com/G4f21Ai.jpeg',
@@ -99,6 +101,7 @@ export const itemsMock: Item[] = [
       mod020: 50.0,
       mod234: 90.0,
     },
+    offerDiscount: 15,
     photos: [
       'https://i.imgur.com/yb9UQKL.jpeg',
       'https://i.imgur.com/m2owtQG.jpeg',

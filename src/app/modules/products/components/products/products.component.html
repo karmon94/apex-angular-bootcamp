@@ -1,20 +1,45 @@
-<div class="items-container">
-  <ng-container *ngFor="let item of pageItems">
-    <div class="item-wrapper" (click)="productClicked(item)">
-      <img
-        width="200"
-        height="200"
-        [src]="item.photos[0]"
-        alt="element.photos[0]"
-      />
-      <p>{{ item.title }}</p>
-    </div>
-  </ng-container>
+<div class="filter-container">
+  <mat-form-field class="search-input">
+    <mat-label>Search</mat-label>
+    <input
+      type="text"
+      matInput
+      placeholder="Search item"
+      [formControl]="searchCriteria"
+    />
+  </mat-form-field>
+
+  <mat-checkbox
+    class="example-margin"
+    [(ngModel)]="showDiscounts"
+    (change)="searchItems()"
+    >Ofertas!</mat-checkbox
+  >
 </div>
 
-<app-pagination
-  [currentPage]="currentPage"
-  [limit]="limit"
-  [totalElements]="items.length"
-  (changePage)="changePage($event)"
-></app-pagination>
+<ng-container *ngIf="getPageItems().length; else noItems">
+  <div class="items-container">
+    <ng-container *ngFor="let item of getPageItems()">
+      <div class="item-wrapper" (click)="productClicked(item)">
+        <img
+          width="200"
+          height="200"
+          [src]="item.photos[0]"
+          alt="element.photos[0]"
+        />
+        <p>{{ item.title }}</p>
+      </div>
+    </ng-container>
+  </div>
+
+  <app-pagination
+    [currentPage]="currentPage"
+    [limit]="limit"
+    [totalElements]="filteredItems.length"
+    (changePage)="changePage($event)"
+  ></app-pagination>
+</ng-container>
+
+<ng-template #noItems>
+  <p class="no-found-text">No items found!</p>
+</ng-template>
