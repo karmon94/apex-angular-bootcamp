@@ -81,13 +81,13 @@ export class NewProductComponent {
       description: description!,
       photos: photos!.map((p: any) => p.url),
       prices: {},
-      offerDiscount: 0,
+      offerDiscount: offerDiscount!,
     };
 
     prices?.map((p: any) => (newItem.prices[p.tag] = p.price));
 
-    console.log(newItem);
     this.productService.addItem(newItem);
+    this.dialogRef.close('added');
   }
 
   hasDuplicate(fieldValidation: string): ValidatorFn {

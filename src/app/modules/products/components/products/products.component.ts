@@ -23,6 +23,7 @@ export class ProductsComponent {
 
   searchCriteria = new FormControl('');
   formSub = new Subscription();
+  productSub = new Subscription();
 
   constructor(
     private productService: ProductsService,
@@ -31,9 +32,11 @@ export class ProductsComponent {
   ) {}
 
   ngOnInit(): void {
-    this.productService.getItems().subscribe((items) => (this.items = items));
-    this.filteredItems = this.items;
-    this.getPageItems();
+    this.productSub = this.productService.getItems().subscribe((items) => {
+      this.items = items;
+      this.filteredItems = this.items;
+      this.getPageItems();
+    });
 
     this.formSub = this.searchCriteria.valueChanges
       .pipe(debounceTime(1000))
@@ -93,5 +96,6 @@ export class ProductsComponent {
   ngOnDestroy(): void {
     console.log('destroyed');
     this.formSub.unsubscribe();
+    this.productSub.unsubscribe();
   }
 }
