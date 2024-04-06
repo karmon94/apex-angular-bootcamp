@@ -31,7 +31,7 @@ export class ProductsComponent {
   ) {}
 
   ngOnInit(): void {
-    this.items = this.productService.getItems();
+    this.productService.getItems().subscribe((items) => (this.items = items));
     this.filteredItems = this.items;
     this.getPageItems();
 
@@ -82,12 +82,16 @@ export class ProductsComponent {
   openNewProduct(): void {
     const dialogRef = this.dialog.open(NewProductComponent, {
       width: '50%',
+      height: '900px',
+      maxHeight: '900px',
+      disableClose: true,
     });
 
     dialogRef.afterClosed().subscribe((resp) => console.log(resp));
   }
 
   ngOnDestroy(): void {
+    console.log('destroyed');
     this.formSub.unsubscribe();
   }
 }
