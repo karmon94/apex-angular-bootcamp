@@ -1,0 +1,29 @@
+<div class="container">
+  <ng-container *ngIf="productSelected; else notFound">
+    <h2 class="title">{{ productSelected.title }}</h2>
+    <app-carousel [imgs]="productSelected.photos"></app-carousel>
+    <p class="description">{{ productSelected.description }}</p>
+
+    <ng-container *ngFor="let price of productSelected.prices | keyvalue">
+      <div class="price-container">
+        <p class="price">{{ price.key }} :</p>
+        <p
+          class="price"
+          [ngClass]="{ discount: productSelected.offerDiscount }"
+        >
+          {{ price.value | topRound | currency }}
+        </p>
+        <p class="price new-price" *ngIf="productSelected.offerDiscount">
+          {{ calculatePriceWithDiscount(price.value) | topRound | currency }}
+        </p>
+      </div>
+    </ng-container>
+  </ng-container>
+
+  <ng-template #notFound>
+    <img
+      src="https://img.freepik.com/free-vector/oops-404-error-with-broken-robot-concept-illustration_114360-5529.jpg"
+      alt=""
+    />
+  </ng-template>
+</div>

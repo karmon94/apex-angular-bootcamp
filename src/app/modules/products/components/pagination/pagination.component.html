@@ -1,0 +1,40 @@
+<div class="pagination-container">
+  <button
+    [disabled]="currentPage === 0"
+    class="custom-button"
+    (click)="changePage.emit(1)"
+  >
+    <<
+  </button>
+  <button
+    [disabled]="currentPage === 0"
+    class="custom-button"
+    (click)="changePage.emit(currentPage)"
+  >
+    <
+  </button>
+
+  <button
+    class="custom-button"
+    *ngFor="let page of pages; index as i"
+    (click)="changePage.emit(page)"
+    [ngClass]="{ selected: currentPage === i }"
+  >
+    {{ page }}
+  </button>
+
+  <button
+    [disabled]="currentPage === pages.length - 1"
+    class="custom-button"
+    (click)="changePage.emit(currentPage + 2)"
+  >
+    >
+  </button>
+  <button
+    [disabled]="currentPage === pages.length - 1"
+    class="custom-button"
+    (click)="changePage.emit(pages.length)"
+  >
+    >>
+  </button>
+</div>

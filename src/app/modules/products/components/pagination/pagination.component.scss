@@ -1,0 +1,27 @@
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1rem;
+}
+
+.selected {
+  background-color: #1976d2;
+  color: white;
+  font-weight: bold;
+}
+
+.custom-button {
+  width: 50px;
+  height: 50px;
+  font-size: 1rem;
+  border-radius: 10%;
+  border: solid 2pxblack;
+  cursor: pointer;
+}
+
+.custom-button:hover {
+  background-color: #e2f0ff;
+  border: solid 2px#1976d2;
+  font-weight: bold;
+}

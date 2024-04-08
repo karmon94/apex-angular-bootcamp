@@ -1,0 +1,151 @@
+<div class="dialog-container">
+  <h2 class="header">New Item</h2>
+  <hr style="width: 95%" />
+
+  <form class="form-layout" [formGroup]="productoForm">
+    <mat-form-field>
+      <mat-label>Title</mat-label>
+      <input
+        type="text"
+        matInput
+        placeholder="Enter title"
+        formControlName="title"
+      />
+      <mat-error *ngIf="productoForm.get('title')?.hasError('required')"
+        >Required!</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Description</mat-label>
+      <input
+        type="text"
+        matInput
+        placeholder="Enter description"
+        formControlName="description"
+      />
+      <mat-error *ngIf="productoForm.get('description')?.hasError('required')"
+        >Required!</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Offer disccount</mat-label>
+      <input
+        type="number"
+        matInput
+        placeholder="Enter disccount"
+        formControlName="offerDiscount"
+      />
+      <span matTextSuffix>%</span>
+    </mat-form-field>
+
+    <!-- PHOTOS -->
+    <section class="section">
+      <div class="section-header">
+        <h2>Photos</h2>
+        <button mat-flat-button color="secondary" (click)="addPhoto()">
+          + Add photo
+        </button>
+      </div>
+
+      <div formArrayName="photos" class="section">
+        <div
+          *ngFor="let photo of photos.controls; let i = index"
+          formGroupName="{{ i }}"
+          class="array-item two-item"
+        >
+          <mat-form-field class="input-layout" floatLabel="always">
+            <mat-label>Url</mat-label>
+            <input
+              type="text"
+              matInput
+              placeholder="Enter photo url"
+              formControlName="url"
+            />
+            <mat-error *ngIf="photo.get('url')?.hasError('required')"
+              >Required!</mat-error
+            >
+            <mat-error *ngIf="photo.get('url')?.hasError('notUnique')"
+              >Must be unique!</mat-error
+            >
+          </mat-form-field>
+
+          <button mat-flat-button color="warn" (click)="deletePhoto(i)">
+            Delete
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICES -->
+    <section class="section">
+      <div class="section-header">
+        <h2>Prices</h2>
+        <button mat-flat-button color="secondary" (click)="addPrice()">
+          + Add price
+        </button>
+      </div>
+
+      <div formArrayName="prices" class="section">
+        <div
+          *ngFor="let price of prices.controls; let i = index"
+          formGroupName="{{ i }}"
+          class="array-item three-item"
+        >
+          <mat-form-field class="input-layout" floatLabel="always">
+            <mat-label>Tag</mat-label>
+            <input
+              type="text"
+              matInput
+              placeholder="Enter tag"
+              formControlName="tag"
+            />
+
+            <mat-error *ngIf="price.get('tag')?.getError('pattern')"
+              >Only alphanumeric values!</mat-error
+            >
+            <mat-error *ngIf="price.get('tag')?.hasError('required')"
+              >Required!</mat-error
+            >
+            <mat-error *ngIf="price.get('tag')?.hasError('notUnique')"
+              >Must be unique!</mat-error
+            >
+          </mat-form-field>
+
+          <mat-form-field class="input-layout" floatLabel="always">
+            <mat-label>Price</mat-label>
+            <input
+              type="number"
+              matInput
+              placeholder="Enter price of tag"
+              formControlName="price"
+            />
+            <span matTextPrefix>$&nbsp;</span>
+            <mat-error *ngIf="price.get('price')?.hasError('required')"
+              >Required!</mat-error
+            >
+          </mat-form-field>
+
+          <button mat-flat-button color="warn" (click)="deletePrice(i)">
+            Delete
+          </button>
+        </div>
+      </div>
+    </section>
+  </form>
+
+  <div class="dialog-actions">
+    <button mat-flat-button color="secondary" (click)="closeDialog()">
+      Close
+    </button>
+    <button
+      mat-flat-button
+      color="primary"
+      [disabled]="!productoForm.valid"
+      (click)="addProduct()"
+    >
+      Add Item
+    </button>
+  </div>
+</div>
